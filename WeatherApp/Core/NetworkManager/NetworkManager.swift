@@ -19,14 +19,14 @@ enum NetworkPath: RawRepresentable {
         return UserDefaults.standard.string(forKey: apiKey_)
     }
 
-    static let baseUrl = "https://api.weatherapi.com/v1/"
+    static let baseUrl = "https://api.openweathermap.org/data/2.5/"
     
-    case forecast(city: String)
+    case weather(city: String)
     
     var rawValue: String {
         switch self {
-        case .forecast(let city):
-            return "forecast.json?q=\(city)&days=10&aqi=yes&alerts=yes&key=\(NetworkPath.apiKey!)"
+        case .weather(let city):
+            return "weather?q=\(city)&appid=\(NetworkPath.apiKey!)"
         }
     }
     

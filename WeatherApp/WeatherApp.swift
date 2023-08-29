@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import SnapKit
 
 @main
 struct WeatherApp: App {
-  init(){
+ init(){
     if let plistPath = Bundle.main.path(forResource: "Keys", ofType: "plist"),
        let keys = NSDictionary(contentsOfFile: plistPath) as? [String: Any],
        let apiKey = keys["key"] as? String {
@@ -22,11 +21,16 @@ struct WeatherApp: App {
     } else {
         print("API Key not found.")
     }
-    
   }
   var body: some Scene {
     WindowGroup {
-     ForecastView()
+    WeatherView()
     }
+  }
+}
+
+struct WeatherApp_Previews: PreviewProvider {
+  static var previews: some View {
+    WeatherView()
   }
 }

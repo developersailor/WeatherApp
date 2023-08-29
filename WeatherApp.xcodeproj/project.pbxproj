@@ -18,10 +18,12 @@
 		F619DD6A2A6B318400917746 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F619DD692A6B318400917746 /* RxRelay */; };
 		F619DD6F2A6B318400917746 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F619DD6E2A6B318400917746 /* RxSwift */; };
 		F619DD792A6B318400917746 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F619DD782A6B318400917746 /* SnapKit */; };
+		F61DD0252A9D02B90013E705 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61DD0242A9D02B90013E705 /* WeatherViewModel.swift */; };
+		F61DD0272A9D02C80013E705 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61DD0262A9D02C80013E705 /* WeatherView.swift */; };
 		F6438D802A75985E002FB331 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6438D7F2A75985E002FB331 /* NetworkManager.swift */; };
 		F67176272A7BCD70006BE9FE /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F67176262A7BCD70006BE9FE /* Keys.plist */; };
-		F6DFDAD92A6F172600402069 /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFDAD82A6F172600402069 /* ForecastViewModel.swift */; };
-		F6DFDADD2A6F226F00402069 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFDADC2A6F226F00402069 /* ForecastView.swift */; };
+		F679015B2A7C33A50008A332 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F679015A2A7C33A50008A332 /* FontConstants.swift */; };
+		F679015E2A7C349B0008A332 /* FontEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F679015D2A7C349B0008A332 /* FontEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,10 +51,12 @@
 		F619DD5A2A6B314200917746 /* SnapKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SnapKit; path = Carthage/Checkouts/SnapKit; sourceTree = "<group>"; };
 		F619DD5B2A6B314500917746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F619DD5C2A6B316100917746 /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Alamofire; path = Carthage/Checkouts/Alamofire; sourceTree = "<group>"; };
+		F61DD0242A9D02B90013E705 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		F61DD0262A9D02C80013E705 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		F6438D7F2A75985E002FB331 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F67176262A7BCD70006BE9FE /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
-		F6DFDAD82A6F172600402069 /* ForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
-		F6DFDADC2A6F226F00402069 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
+		F679015A2A7C33A50008A332 /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
+		F679015D2A7C349B0008A332 /* FontEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,15 +139,26 @@
 		F619DD802A6BDAB500917746 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				F60955582A7981B3009412CC /* Model */,
-				F6DFDAB52A6E670300402069 /* Forecast */,
+				F61DD0232A9D02750013E705 /* Weather */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		F61DD0232A9D02750013E705 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				F60955582A7981B3009412CC /* Model */,
+				F61DD0242A9D02B90013E705 /* WeatherViewModel.swift */,
+				F61DD0262A9D02C80013E705 /* WeatherView.swift */,
+			);
+			path = Weather;
 			sourceTree = "<group>";
 		};
 		F6438D7C2A759820002FB331 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				F679015C2A7C33C30008A332 /* Enums */,
+				F67901592A7C33720008A332 /* Constants */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -164,13 +179,20 @@
 			path = NetworkManager;
 			sourceTree = "<group>";
 		};
-		F6DFDAB52A6E670300402069 /* Forecast */ = {
+		F67901592A7C33720008A332 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				F6DFDAD82A6F172600402069 /* ForecastViewModel.swift */,
-				F6DFDADC2A6F226F00402069 /* ForecastView.swift */,
+				F679015A2A7C33A50008A332 /* FontConstants.swift */,
 			);
-			path = Forecast;
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		F679015C2A7C33C30008A332 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				F679015D2A7C349B0008A332 /* FontEnum.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,8 +277,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F609555A2A7981BF009412CC /* Model.swift in Sources */,
-				F6DFDAD92A6F172600402069 /* ForecastViewModel.swift in Sources */,
-				F6DFDADD2A6F226F00402069 /* ForecastView.swift in Sources */,
+				F679015E2A7C349B0008A332 /* FontEnum.swift in Sources */,
+				F679015B2A7C33A50008A332 /* FontConstants.swift in Sources */,
+				F61DD0252A9D02B90013E705 /* WeatherViewModel.swift in Sources */,
+				F61DD0272A9D02C80013E705 /* WeatherView.swift in Sources */,
 				F6438D802A75985E002FB331 /* NetworkManager.swift in Sources */,
 				F619DD482A6B2B0700917746 /* WeatherApp.swift in Sources */,
 			);
