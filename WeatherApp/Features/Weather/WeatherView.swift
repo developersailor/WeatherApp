@@ -10,12 +10,13 @@ import SwiftUI
 struct WeatherView: View {
     @ObservedObject private var viewModel: WeatherViewModel  = WeatherViewModel()
     @State private var city: String = ""
-    func kelvinToCelcius(kelvin: Double) -> Double {
+    func kelvinToCelcius(kelvin: Double) -> Int {
         let celcius = kelvin - 273.15
-        return celcius
+        return Int(celcius)
     }
     var body: some View {
         VStack{
+            Spacer()
             TextField("Bulunduğun şehir neresi?", text: $city).padding(.horizontal, 70).font(.custom(Font.robotoRegular.getFont(), size: 20))
             Button("Hava Durumu", action: {
                 Task {
@@ -23,14 +24,19 @@ struct WeatherView: View {
                     print( result ?? "no result")
                 }
             }).font(.custom(Font.robotoRegular.getFont(), size: 40))
-           
+           Spacer()
         }
-        VStack{
-            Text("Şehir: \(viewModel.cityName ?? " " )").font(.custom(Font.robotoRegular.getFont(), size: 30))
-            Text(" \(String(describing:Int(kelvinToCelcius(kelvin: viewModel.degree!))))℃").font(.custom(Font.robotoRegular.getFont(), size: 60))
-        
-        }
+        if let cityName = viewModel.cityName, let degree = viewModel.degree {
+                    VStack {
+                        Text("Şehir: \(cityName)")
+                            .font(.custom(Font.robotoRegular.getFont(), size: 30))
+                        
+                        Text("\(String(describing: Double(kelvinToCelcius(kelvin: max(degree, 0)))))℃")
+                            .font(.custom(Font.robotoRegular.getFont(), size: 60))
+                    }
+                }
         Spacer()
+        Text("Nem verisi: \(String(describing: viewModel.humidity!))")
     }
 }
 

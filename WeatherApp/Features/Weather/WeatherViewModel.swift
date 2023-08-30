@@ -18,9 +18,9 @@ final class WeatherViewModel: ObservableObject {
         let result = await manager.fetch(path: .weather(city: city), method: .get, type: Weather.self)
         Task{
             DispatchQueue.main.async { [self] in
-                degree =  result!.main?.temp
-                cityName = result!.name
-                humidity = result!.main?.humidity
+                degree =  result?.main?.temp
+                cityName = result?.name
+                humidity = result?.main?.humidity
             }
             return result
         }
