@@ -10,6 +10,8 @@ import SwiftUI
 struct WeatherView: View {
     @ObservedObject private var viewModel: WeatherViewModel  = WeatherViewModel()
     @State private var city: String = ""
+    @State private var locationName: String = "Yer adı bekleniyor"
+   
     func kelvinToCelcius(kelvin: Double) -> Int {
         let celcius = kelvin - 273.15
         return Int(celcius)
@@ -37,11 +39,5 @@ struct WeatherView: View {
                 }
         Spacer()
         Text("Nem verisi: \(String(describing: viewModel.humidity!))")
-    }
-}
-
-struct WeatherView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeatherView()
     }
 }

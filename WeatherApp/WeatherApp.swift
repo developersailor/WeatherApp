@@ -24,13 +24,13 @@ struct WeatherApp: App {
   }
   var body: some Scene {
     WindowGroup {
-    WeatherView()
+      HomeView()
     }
   }
 }
 
 struct WeatherApp_Previews: PreviewProvider {
   static var previews: some View {
-    WeatherView()
+    HomeView()
   }
 }

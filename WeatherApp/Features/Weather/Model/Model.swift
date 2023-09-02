@@ -197,6 +197,8 @@ struct Main: Codable {
     var tempMax: Double?
     var pressure: Int?
     var humidity: Int?
+    var seaLevel: Int?
+    var grndLevel: Int?
 
     enum CodingKeys: String, CodingKey {
         case temp = "temp"
@@ -205,6 +207,8 @@ struct Main: Codable {
         case tempMax = "temp_max"
         case pressure = "pressure"
         case humidity = "humidity"
+        case seaLevel = "sea_level"
+        case grndLevel = "grnd_level"
     }
 }
 
@@ -232,7 +236,9 @@ extension Main {
         tempMin: Double?? = nil,
         tempMax: Double?? = nil,
         pressure: Int?? = nil,
-        humidity: Int?? = nil
+        humidity: Int?? = nil,
+        seaLevel: Int?? = nil,
+        grndLevel: Int?? = nil
     ) -> Main {
         return Main(
             temp: temp ?? self.temp,
@@ -240,7 +246,9 @@ extension Main {
             tempMin: tempMin ?? self.tempMin,
             tempMax: tempMax ?? self.tempMax,
             pressure: pressure ?? self.pressure,
-            humidity: humidity ?? self.humidity
+            humidity: humidity ?? self.humidity,
+            seaLevel: seaLevel ?? self.seaLevel,
+            grndLevel: grndLevel ?? self.grndLevel
         )
     }
 
@@ -373,10 +381,12 @@ extension WeatherElement {
 struct Wind: Codable {
     var speed: Double?
     var deg: Int?
+    var gust: Double?
 
     enum CodingKeys: String, CodingKey {
         case speed = "speed"
         case deg = "deg"
+        case gust = "gust"
     }
 }
 
@@ -400,11 +410,13 @@ extension Wind {
 
     func with(
         speed: Double?? = nil,
-        deg: Int?? = nil
+        deg: Int?? = nil,
+        gust: Double?? = nil
     ) -> Wind {
         return Wind(
             speed: speed ?? self.speed,
-            deg: deg ?? self.deg
+            deg: deg ?? self.deg,
+            gust: gust ?? self.gust
         )
     }
 
