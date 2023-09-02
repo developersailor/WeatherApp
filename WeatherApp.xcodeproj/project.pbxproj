@@ -26,7 +26,6 @@
 		F679015E2A7C349B0008A332 /* FontEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F679015D2A7C349B0008A332 /* FontEnum.swift */; };
 		F6F33F5B2AA3386C00C39E89 /* MyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F33F5A2AA3386C00C39E89 /* MyWeatherView.swift */; };
 		F6F33F5E2AA338D700C39E89 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F33F5D2AA338D700C39E89 /* HomeView.swift */; };
-		F6F33F622AA33C4E00C39E89 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F33F612AA33C4E00C39E89 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,7 +61,6 @@
 		F679015D2A7C349B0008A332 /* FontEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEnum.swift; sourceTree = "<group>"; };
 		F6F33F5A2AA3386C00C39E89 /* MyWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeatherView.swift; sourceTree = "<group>"; };
 		F6F33F5D2AA338D700C39E89 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		F6F33F612AA33C4E00C39E89 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +143,6 @@
 		F619DD802A6BDAB500917746 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				F6F33F5F2AA33C2B00C39E89 /* Error */,
 				F6F33F5C2AA338CA00C39E89 /* Home */,
 				F6F33F592AA3385000C39E89 /* MyWeather */,
 				F61DD0232A9D02750013E705 /* Weather */,
@@ -218,14 +215,6 @@
 				F6F33F5D2AA338D700C39E89 /* HomeView.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		F6F33F5F2AA33C2B00C39E89 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				F6F33F612AA33C4E00C39E89 /* ErrorView.swift */,
-			);
-			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,7 +303,6 @@
 				F679015E2A7C349B0008A332 /* FontEnum.swift in Sources */,
 				F679015B2A7C33A50008A332 /* FontConstants.swift in Sources */,
 				F61DD0252A9D02B90013E705 /* WeatherViewModel.swift in Sources */,
-				F6F33F622AA33C4E00C39E89 /* ErrorView.swift in Sources */,
 				F61DD0272A9D02C80013E705 /* WeatherView.swift in Sources */,
 				F6438D802A75985E002FB331 /* NetworkManager.swift in Sources */,
 				F619DD482A6B2B0700917746 /* WeatherApp.swift in Sources */,
