@@ -10,12 +10,12 @@ import SwiftUI
 struct WeatherView: View {
     @ObservedObject private var viewModel: WeatherViewModel  = WeatherViewModel()
     @State private var city: String = ""
-    @State private var locationName: String = "Yer adı bekleniyor"
-   
+    
     func kelvinToCelcius(kelvin: Double) -> Int {
         let celcius = kelvin - 273.15
         return Int(celcius)
     }
+    
     var body: some View {
         VStack{
             Spacer()
@@ -26,18 +26,30 @@ struct WeatherView: View {
                     print( result ?? "no result")
                 }
             }).font(.custom(Font.robotoRegular.getFont(), size: 40))
-           Spacer()
+            Spacer()
         }
         if let cityName = viewModel.cityName, let degree = viewModel.degree {
-                    VStack {
-                        Text("Şehir: \(cityName)")
-                            .font(.custom(Font.robotoRegular.getFont(), size: 30))
-                        
-                        Text("\(String(describing: Double(kelvinToCelcius(kelvin: max(degree, 0)))))℃")
-                            .font(.custom(Font.robotoRegular.getFont(), size: 60))
-                    }
-                }
+            VStack {
+                Text("Şehir: \(cityName)")
+                    .font(.custom(Font.robotoRegular.getFont(), size: 30))
+                
+                Text("\(String(describing: Double(kelvinToCelcius(kelvin: max(degree, 0)))))℃")
+                    .font(.custom(Font.robotoRegular.getFont(), size: 60))
+            }
+        } else {
+            VStack {
+                Text("Şehir: ")
+                    .font(.custom(Font.robotoRegular.getFont(), size: 30))
+                
+                Text("°C")
+                    .font(.custom(Font.robotoRegular.getFont(), size: 60))
+            }
+        }
         Spacer()
-        Text("Nem verisi: \(String(describing: viewModel.humidity!))")
+        if let humidity = viewModel.humidity {
+            Text("Nem verisi: \(humidity)")
+        } else {
+            Text("Nem verisi: Bekleniyor")
+        }
     }
 }
