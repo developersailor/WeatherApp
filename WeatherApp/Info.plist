@@ -2,9 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need your location to provide weather information for always.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app will use your location both always and when in use to provide you with better services.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to provide weather information.</string>
+	<string>This app will use your location only when it's in use to show you nearby weather information.</string>
 </dict>
 </plist>

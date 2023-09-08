@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct WeatherApp: App {
+  @StateObject var viewModel = WeatherAppViewModel()
  init(){
     if let plistPath = Bundle.main.path(forResource: "Keys", ofType: "plist"),
        let keys = NSDictionary(contentsOfFile: plistPath) as? [String: Any],
@@ -24,7 +25,15 @@ struct WeatherApp: App {
   }
   var body: some Scene {
     WindowGroup {
-      HomeView()
+      if viewModel.isConnected {
+        HomeView()
+      }
+      else {
+        Text("internet yok")
+        Button("Yeniden bağlan"){
+          viewModel.restartConnectivity()
+        }
+      }
     }
   }
 }

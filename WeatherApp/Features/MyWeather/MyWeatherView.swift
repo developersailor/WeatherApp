@@ -1,53 +1,59 @@
-//
-//  MyWeatherView.swift
-//  WeatherApp
-//
-//  Created by Mehmet Fışkındal on 2.09.2023.
-//
-
 import SwiftUI
 import CoreLocation
 import Combine
 
+struct LocationData: Codable {
+    let cityName: String
+}
+
 struct MyWeatherView: View {
-    @ObservedObject private var viewModel: WeatherViewModel  = WeatherViewModel()
-    @State private var locationName: String? = ""
-    @State private var locationManager = LocationManager()
+    @State private var locationData: LocationData?
+    @StateObject private var locationManager = LocationManager()
+    @ObservedObject private var myWeatherViewModel: MyWeatherViewModel = MyWeatherViewModel()
+    
     func kelvinToCelcius(kelvin: Double) -> Int {
         let celcius = kelvin - 273.15
         return Int(celcius)
     }
-    
+
     var body: some View {
         VStack {
-            if(locationName != nil ){
-                Text("Yer Adı: \((locationName?.replacingOccurrences(of: " ", with: ""))!)")
-                    .font(.title)
+            Button("Ara") {
+                locationManager.requestLocation()
             }
-        if let cityName = viewModel.cityName, let degree = viewModel.degree {
-                    VStack {
-                        Text("Şehir: \(cityName)")
-                            .font(.custom(Font.robotoRegular.getFont(), size: 30))
-                        
-                        Text("\(String(describing: Double(kelvinToCelcius(kelvin: max(degree, 0)))))℃")
-                            .font(.custom(Font.robotoRegular.getFont(), size: 60))
-                    }
+
+            if let cityName = locationData?.cityName {
+                Text("City: \(cityName)")
+                    .font(.title)
+
+                if let degree = myWeatherViewModel.degree,
+                   let humidity = myWeatherViewModel.humidity {
+                    Text("Temperature: \(Int(degree))°C")
+                    Text("Humidity: \(humidity)%")
+                    // Add more weather-related information as needed
+                } else {
+                    Text("Fetching weather data...")
                 }
-            Text("Nem verisi: \(String(describing: viewModel.humidity))")
+            }
         }
         .padding()
         .onAppear {
             locationManager.onLocationUpdate = { result in
                 switch result {
                 case .success(let cityName):
-                    self.locationName = cityName
+                    let data = LocationData(cityName: cityName)
+                    UserDefaults.standard.set(try? PropertyListEncoder().encode(data), forKey: "LocationData")
+                    self.locationData = data
+
+                    if let location = locationManager.location {
+                        Task {
+                            await myWeatherViewModel.fetchLocalWeather(location: location)
+                        }
+                    }
+
                 case .failure(let error):
-                    print("Hata: \(error.localizedDescription)")
+                    print("Error: \(error.localizedDescription)")
                 }
-            }
-            locationManager.requestLocation()
-            Task{
-                await viewModel.fetchWeather(city: locationName ?? "Ankara")
             }
         }
     }
@@ -59,12 +65,10 @@ struct MyWeatherView_Previews: PreviewProvider {
     }
 }
 
-
-
-
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var locationManager = CLLocationManager()
     @Published var onLocationUpdate: ((Result<String, Error>) -> Void)?
+    @Published var location: CLLocation?
 
     override init() {
         super.init()
@@ -72,24 +76,14 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func requestLocation() {
+        locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            let geocoder = CLGeocoder()
-            geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
-                if let error = error {
-                    self?.onLocationUpdate?(.failure(error))
-                } else if let placemark = placemarks?.first {
-                    if let cityName = placemark.locality {
-                        self?.onLocationUpdate?(.success(cityName))
-                    } else {
-                        self?.onLocationUpdate?(.failure(NSError(domain: "LocationManager", code: 0, userInfo: [NSLocalizedDescriptionKey: "Şehir adı bulunamadı"])))
-                    }
-                }
-            }
+            self.location = location
         }
     }
 

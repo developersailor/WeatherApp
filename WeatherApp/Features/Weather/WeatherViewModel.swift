@@ -6,13 +6,10 @@
 //
 
 import Foundation
-import SwiftUI
-import CoreLocation
-
-final class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
+final class WeatherViewModel: ObservableObject {
     @Published var degree: Double? = nil
     @Published var cityName: String? = nil
-    @Published var humidity: Int? = nil
+    @Published var humidity: Int? = nil 
     private let manager = NetworkManager.networkManager
     func fetchWeather(city: String) async  -> Weather? {
         let result = await manager.fetch(path: .weather(city: city), method: .get, type: Weather.self)

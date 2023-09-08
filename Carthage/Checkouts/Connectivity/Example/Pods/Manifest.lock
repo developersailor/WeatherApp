@@ -1,0 +1,35 @@
+PODS:
+  - Connectivity (5.0.0)
+  - OHHTTPStubs/Core (9.1.0)
+  - OHHTTPStubs/Default (9.1.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (9.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (9.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (9.1.0)
+  - OHHTTPStubs/Swift (9.1.0):
+    - OHHTTPStubs/Default
+
+DEPENDENCIES:
+  - Connectivity (from `../`)
+  - OHHTTPStubs/Swift
+
+SPEC REPOS:
+  trunk:
+    - OHHTTPStubs
+
+EXTERNAL SOURCES:
+  Connectivity:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Connectivity: 13fb578ea973b4d1d2d9d900d8582d3c27ff1f8b
+  OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
+
+PODFILE CHECKSUM: c5b723e0b586f69bc9145c603ad8a63cbc8f1194
+
+COCOAPODS: 1.9.3

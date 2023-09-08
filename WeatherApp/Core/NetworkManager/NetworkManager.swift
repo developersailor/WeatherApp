@@ -4,7 +4,7 @@
 //
 //  Created by Mehmet Fışkındal on 29.07.2023.
 //
-
+import CoreLocation
 import Alamofire
 import Foundation
 protocol INetworkManager {
@@ -78,13 +78,21 @@ enum NetworkPath: RawRepresentable {
     static let baseUrl = "https://api.openweathermap.org/data/2.5/"
     
     case weather(city: String)
+    case weatherLanLat( location: CLLocation)
     
     var rawValue: String {
+        guard let apiKey = NetworkPath.apiKey else {
+            fatalError("API anahtarı ayarlanmamış.")
+        }
+
         switch self {
         case .weather(let city):
-            return "weather?q=\(city)&appid=\(NetworkPath.apiKey!)"
+            return "weather?q=\(city)&appid=\(apiKey)"
+        case .weatherLanLat(location: let location):
+            return "weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=\(apiKey)&units=metric"
         }
     }
+
     
     init?(rawValue: String) {
         // Gerekirse dönüşüm işlemleri burada yapılabilir

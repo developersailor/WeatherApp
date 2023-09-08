@@ -1,0 +1,15 @@
+language: objective-c
+osx_image: xcode12
+before_install:
+  - gem install cocoapods -v '1.8.3'
+  - brew update
+install:
+  - brew install swiftformat
+  - brew install swiftlint
+script:
+  - gem install travis
+  - travis lint .travis.yml --no-interactive
+  - swiftformat .
+  - swiftlint
+  - xcodebuild clean build test -workspace Example/Connectivity.xcworkspace -scheme Connectivity-Example -destination "platform=iOS Simulator,name=iPhone 11 Pro" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
+  - pod lib lint
