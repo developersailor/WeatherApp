@@ -10,7 +10,7 @@ struct MyWeatherView: View {
     @State private var locationData: LocationData?
     @StateObject private var locationManager = LocationManager()
     @ObservedObject private var myWeatherViewModel: MyWeatherViewModel = MyWeatherViewModel()
-    
+
     func kelvinToCelcius(kelvin: Double) -> Int {
         let celcius = kelvin - 273.15
         return Int(celcius)
@@ -20,40 +20,37 @@ struct MyWeatherView: View {
         VStack {
             Button("Ara") {
                 locationManager.requestLocation()
-            }
+                locationManager.onLocationUpdate = { result in
+                    switch result {
+                    case .success(let cityName):
+                        let data = LocationData(cityName: cityName)
+                        UserDefaults.standard.set(try? PropertyListEncoder().encode(data), forKey: "LocationData")
+                        self.locationData = data
 
-            if let cityName = locationData?.cityName {
-                Text("City: \(cityName)")
-                    .font(.title)
+                        if let location = locationManager.location {
+                            Task {
+                                await myWeatherViewModel.fetchLocalWeather(location: location)
+                            }
+                        }
 
-                if let degree = myWeatherViewModel.degree,
-                   let humidity = myWeatherViewModel.humidity {
-                    Text("Temperature: \(Int(degree))°C")
-                    Text("Humidity: \(humidity)%")
-                    // Add more weather-related information as needed
-                } else {
-                    Text("Fetching weather data...")
+                    case .failure(let error):
+                        print("Error: \(error.localizedDescription)")
+                    }
                 }
             }
         }
-        .padding()
-        .onAppear {
-            locationManager.onLocationUpdate = { result in
-                switch result {
-                case .success(let cityName):
-                    let data = LocationData(cityName: cityName)
-                    UserDefaults.standard.set(try? PropertyListEncoder().encode(data), forKey: "LocationData")
-                    self.locationData = data
 
-                    if let location = locationManager.location {
-                        Task {
-                            await myWeatherViewModel.fetchLocalWeather(location: location)
-                        }
-                    }
+        if let cityName = locationData?.cityName {
+            Text("City: \(cityName)")
+                .font(.title)
 
-                case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                }
+            if let degree = myWeatherViewModel.degree,
+                let humidity = myWeatherViewModel.humidity {
+                Text("Temperature: \(Int(degree))°C")
+                Text("Humidity: \(humidity)%")
+                // Add more weather-related information as needed
+            } else {
+                Text("Fetching weather data...")
             }
         }
     }

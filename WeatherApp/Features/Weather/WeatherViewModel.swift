@@ -11,14 +11,13 @@ final class WeatherViewModel: ObservableObject {
     @Published var cityName: String? = nil
     @Published var humidity: Int? = nil 
     private let manager = NetworkManager.networkManager
-    func fetchWeather(city: String) async  -> Weather? {
-        let result = await manager.fetch(path: .weather(city: city), method: .get, type: Weather.self)
-  Task{
+    func fetchWeather(city: String) async  -> WeatherModel? {
+        let result = await manager.fetch(path: .weather(city: city), method: .get, type: WeatherModel.self)
+        Task{
             DispatchQueue.main.async { [self] in
                 degree =  result?.main?.temp
                 cityName = result?.name
                 humidity = result?.main?.humidity
-
             }
             return result
         }

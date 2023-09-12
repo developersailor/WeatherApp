@@ -32,8 +32,19 @@ struct HomeView: View {
                                 .cornerRadius(10)
                         }
                         .padding()
+                        NavigationLink(destination: ForecastView()) {
+                            Text("Günlük saatlik havadurumu")
+                                .font(.largeTitle)
+                                .padding()
+                                .background(Color.green)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                        .padding()
                     }
                     .navigationBarTitle("Ana Ekran")
+            
+            
                 }
     }
 }
