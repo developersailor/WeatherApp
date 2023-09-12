@@ -15,15 +15,11 @@ struct ForecastView: View {
         let celsius = Int(kelvin - 273.15)
         return celsius
     }
-<<<<<<< HEAD
-    
-=======
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Adjust the date format as per your data
         return formatter
     }()
->>>>>>> 8a63cc2 (görünüm iyileştirildi ve modelle ilgili düzeltmeler var)
     var body: some View {
         NavigationView {
             VStack {
@@ -42,15 +38,6 @@ struct ForecastView: View {
                 .cornerRadius(10)
                 
                 List {
-<<<<<<< HEAD
-                    ForEach(forecastViewModel.forecastList ?? [], id: \.self) { data in
-                        Text("Tarih: \(data.dtTxt ?? "N/A")") // Use "N/A" as the default value
-                        Text("Sıcaklık: \(kelvinToCelsius(kelvin: data.main?.temp ?? 0))°C")
-                    }
-                }
-            }
-            .navigationBarTitle("Weather App")
-=======
                     let forecastList = forecastViewModel.forecastList ?? []
 
                     ForEach(forecastList.indices, id: \.self) { index in
@@ -81,7 +68,6 @@ struct ForecastView: View {
 
             }
             .navigationBarTitle("Forecast")
->>>>>>> 8a63cc2 (görünüm iyileştirildi ve modelle ilgili düzeltmeler var)
         }
     }
 }

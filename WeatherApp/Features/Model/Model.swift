@@ -1,3 +1,5 @@
+
+
 // WeatherModel.swift
 
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
@@ -686,8 +688,6 @@ enum Description: String, Codable, Hashable {
     case fewClouds = "few clouds"
     case overcastClouds = "overcast clouds"
     case scatteredClouds = "scattered clouds"
-<<<<<<< HEAD
-=======
     case lightRain = "light rain"
     case moderateRain = "moderate rain"
     case heavyIntensityRain = "heavy intensity rain"
@@ -698,7 +698,6 @@ enum Description: String, Codable, Hashable {
     case showerRain = "shower rain"
     case heavyIntensityShowerRain = "heavy intensity shower rain"
     case raggedShowerRain = "ragged shower rain"
->>>>>>> 8a63cc2 (görünüm iyileştirildi ve modelle ilgili düzeltmeler var)
 }
 
 // MyEnum.swift
@@ -708,8 +707,6 @@ import Foundation
 enum MyEnum: String, Codable, Hashable {
     case clear = "Clear"
     case clouds = "Clouds"
-<<<<<<< HEAD
-=======
     case thunderstorm
     case drizzle
         case rain = "Rain"
@@ -723,7 +720,6 @@ enum MyEnum: String, Codable, Hashable {
         case ash = "Ash"
         case squall = "Squall"
         case tornado = "Tornado"
->>>>>>> 8a63cc2 (görünüm iyileştirildi ve modelle ilgili düzeltmeler var)
 }
 
 // Wind.swift
