@@ -15,7 +15,15 @@ struct ForecastView: View {
         let celsius = Int(kelvin - 273.15)
         return celsius
     }
+<<<<<<< HEAD
     
+=======
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Adjust the date format as per your data
+        return formatter
+    }()
+>>>>>>> 8a63cc2 (görünüm iyileştirildi ve modelle ilgili düzeltmeler var)
     var body: some View {
         NavigationView {
             VStack {
@@ -34,6 +42,7 @@ struct ForecastView: View {
                 .cornerRadius(10)
                 
                 List {
+<<<<<<< HEAD
                     ForEach(forecastViewModel.forecastList ?? [], id: \.self) { data in
                         Text("Tarih: \(data.dtTxt ?? "N/A")") // Use "N/A" as the default value
                         Text("Sıcaklık: \(kelvinToCelsius(kelvin: data.main?.temp ?? 0))°C")
@@ -41,6 +50,38 @@ struct ForecastView: View {
                 }
             }
             .navigationBarTitle("Weather App")
+=======
+                    let forecastList = forecastViewModel.forecastList ?? []
+
+                    ForEach(forecastList.indices, id: \.self) { index in
+                        let data = forecastList[index]
+
+                        if let dateText = data.dtTxt, let date = dateFormatter.date(from: dateText) {
+                            Section(header: Text("Tarih: \(dateFormatter.string(from: date))")) {
+                                Text("Sıcaklık: \(kelvinToCelsius(kelvin: data.main?.temp ?? 0))°C")
+                            }
+
+                            if index < forecastList.count - 1 {
+                                let nextData = forecastList[index + 1]
+                                if let nextDateText = nextData.dtTxt, let nextDate = dateFormatter.date(from: nextDateText) {
+                                    let currentDay = Calendar.current.component(.day, from: date)
+                                    let nextDay = Calendar.current.component(.day, from: nextDate)
+
+                                    // Check if the day has changed
+                                    if currentDay != nextDay {
+                                        Section(header: Text("Tarih: \(dateFormatter.string(from: nextDate))")) {
+                                            Text("Sıcaklık: \(kelvinToCelsius(kelvin: nextData.main?.temp ?? 0))°C")
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            .navigationBarTitle("Forecast")
+>>>>>>> 8a63cc2 (görünüm iyileştirildi ve modelle ilgili düzeltmeler var)
         }
     }
 }

@@ -686,6 +686,19 @@ enum Description: String, Codable, Hashable {
     case fewClouds = "few clouds"
     case overcastClouds = "overcast clouds"
     case scatteredClouds = "scattered clouds"
+<<<<<<< HEAD
+=======
+    case lightRain = "light rain"
+    case moderateRain = "moderate rain"
+    case heavyIntensityRain = "heavy intensity rain"
+    case veryHeavyRain = "very heavy rain"
+    case extremeRain = "extreme rain"
+    case freezingRain = "freezing rain"
+    case lightIntensityShowerRain = "light intensity shower rain"
+    case showerRain = "shower rain"
+    case heavyIntensityShowerRain = "heavy intensity shower rain"
+    case raggedShowerRain = "ragged shower rain"
+>>>>>>> 8a63cc2 (görünüm iyileştirildi ve modelle ilgili düzeltmeler var)
 }
 
 // MyEnum.swift
@@ -695,6 +708,22 @@ import Foundation
 enum MyEnum: String, Codable, Hashable {
     case clear = "Clear"
     case clouds = "Clouds"
+<<<<<<< HEAD
+=======
+    case thunderstorm
+    case drizzle
+        case rain = "Rain"
+        case snow = "Snow"
+        case mist = "Mist"
+        case smoke = "Smoke"
+        case haze = "Haze"
+        case dust = "Dust"
+        case fog = "Fog"
+        case sand = "Sand"
+        case ash = "Ash"
+        case squall = "Squall"
+        case tornado = "Tornado"
+>>>>>>> 8a63cc2 (görünüm iyileştirildi ve modelle ilgili düzeltmeler var)
 }
 
 // Wind.swift
