@@ -26,7 +26,7 @@ struct MyWeatherView: View {
                     }
                 }.padding()
             if let degree = myWeatherViewModel.degree, let city = myWeatherViewModel.cityName, let humidity = myWeatherViewModel.humidity {
-                Text("\(degree)°C")
+                Text("\(degree.formatted())°C")
                     .font(.system(size: 50))
                     .bold()
                 Text(city)
