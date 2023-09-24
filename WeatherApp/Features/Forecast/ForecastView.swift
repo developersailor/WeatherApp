@@ -67,7 +67,7 @@ struct ForecastView: View {
                 }
 
             }
-            .navigationBarTitle("Forecast")
+            
         }
     }
 }
