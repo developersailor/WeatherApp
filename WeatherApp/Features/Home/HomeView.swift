@@ -42,9 +42,6 @@ struct HomeView: View {
                         }
                         .padding()
                     }
-                    .navigationBarTitle("Ana Ekran")
-            
-            
                 }
     }
 }
