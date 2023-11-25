@@ -21,9 +21,7 @@
 		F65FE7AD2ABF7C1F00778779 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F65FE7AC2ABF7C1F00778779 /* Alamofire */; };
 		F65FE7B02ABF7C2C00778779 /* Connectivity in Frameworks */ = {isa = PBXBuildFile; productRef = F65FE7AF2ABF7C2C00778779 /* Connectivity */; };
 		F65FE7B32AC051C600778779 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = F65FE7B22AC051C600778779 /* RxBlocking */; };
-		F65FE7B52AC051C600778779 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F65FE7B42AC051C600778779 /* RxBlocking-Dynamic */; };
 		F65FE7B72AC051C600778779 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F65FE7B62AC051C600778779 /* RxCocoa */; };
-		F65FE7B92AC051C600778779 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F65FE7B82AC051C600778779 /* RxCocoa-Dynamic */; };
 		F65FE7BB2AC051C600778779 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F65FE7BA2AC051C600778779 /* RxRelay */; };
 		F67176272A7BCD70006BE9FE /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F67176262A7BCD70006BE9FE /* Keys.plist */; };
 		F679015B2A7C33A50008A332 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F679015A2A7C33A50008A332 /* FontConstants.swift */; };
@@ -82,8 +80,6 @@
 				F65FE7BB2AC051C600778779 /* RxRelay in Frameworks */,
 				F65FE7B72AC051C600778779 /* RxCocoa in Frameworks */,
 				F65FE7B02ABF7C2C00778779 /* Connectivity in Frameworks */,
-				F65FE7B92AC051C600778779 /* RxCocoa-Dynamic in Frameworks */,
-				F65FE7B52AC051C600778779 /* RxBlocking-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,9 +264,7 @@
 				F65FE7AC2ABF7C1F00778779 /* Alamofire */,
 				F65FE7AF2ABF7C2C00778779 /* Connectivity */,
 				F65FE7B22AC051C600778779 /* RxBlocking */,
-				F65FE7B42AC051C600778779 /* RxBlocking-Dynamic */,
 				F65FE7B62AC051C600778779 /* RxCocoa */,
-				F65FE7B82AC051C600778779 /* RxCocoa-Dynamic */,
 				F65FE7BA2AC051C600778779 /* RxRelay */,
 			);
 			productName = WeatherApp;
@@ -610,20 +604,10 @@
 			package = F65FE7B12AC051C600778779 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxBlocking;
 		};
-		F65FE7B42AC051C600778779 /* RxBlocking-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F65FE7B12AC051C600778779 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxBlocking-Dynamic";
-		};
 		F65FE7B62AC051C600778779 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F65FE7B12AC051C600778779 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
-		};
-		F65FE7B82AC051C600778779 /* RxCocoa-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F65FE7B12AC051C600778779 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxCocoa-Dynamic";
 		};
 		F65FE7BA2AC051C600778779 /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;
