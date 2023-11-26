@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6044B982B12689A00A2E652 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6044B972B12689A00A2E652 /* Keys.plist */; };
+		F6044B9B2B13720800A2E652 /* Parchment in Frameworks */ = {isa = PBXBuildFile; productRef = F6044B9A2B13720800A2E652 /* Parchment */; };
+		F6044BA22B13765D00A2E652 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F6044BA12B13765D00A2E652 /* RxSwift */; };
+		F6044BA42B13766300A2E652 /* iPages in Frameworks */ = {isa = PBXBuildFile; productRef = F6044BA32B13766300A2E652 /* iPages */; };
 		F6131B212AAB9A90009F70E4 /* WeatherAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6131B202AAB9A90009F70E4 /* WeatherAppViewModel.swift */; };
 		F6131B242AABA9DC009F70E4 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6131B232AABA9DC009F70E4 /* ForecastView.swift */; };
 		F6131B262AABA9ED009F70E4 /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6131B252AABA9ED009F70E4 /* ForecastViewModel.swift */; };
@@ -23,7 +27,6 @@
 		F65FE7B32AC051C600778779 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = F65FE7B22AC051C600778779 /* RxBlocking */; };
 		F65FE7B72AC051C600778779 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F65FE7B62AC051C600778779 /* RxCocoa */; };
 		F65FE7BB2AC051C600778779 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F65FE7BA2AC051C600778779 /* RxRelay */; };
-		F67176272A7BCD70006BE9FE /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F67176262A7BCD70006BE9FE /* Keys.plist */; };
 		F679015B2A7C33A50008A332 /* FontConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F679015A2A7C33A50008A332 /* FontConstants.swift */; };
 		F679015E2A7C349B0008A332 /* FontEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F679015D2A7C349B0008A332 /* FontEnum.swift */; };
 		F6AEC31D2AA73EA200AD5F5E /* MyWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEC31C2AA73EA200AD5F5E /* MyWeatherViewModel.swift */; };
@@ -45,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F6044B972B12689A00A2E652 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		F6131B1D2AAB9A52009F70E4 /* Connectivity */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Connectivity; path = Carthage/Checkouts/Connectivity; sourceTree = "<group>"; };
 		F6131B202AAB9A90009F70E4 /* WeatherAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppViewModel.swift; sourceTree = "<group>"; };
 		F6131B232AABA9DC009F70E4 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
@@ -62,7 +66,6 @@
 		F61DD0242A9D02B90013E705 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		F61DD0262A9D02C80013E705 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		F6438D7F2A75985E002FB331 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		F67176262A7BCD70006BE9FE /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		F679015A2A7C33A50008A332 /* FontConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstants.swift; sourceTree = "<group>"; };
 		F679015D2A7C349B0008A332 /* FontEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEnum.swift; sourceTree = "<group>"; };
 		F6AEC31C2AA73EA200AD5F5E /* MyWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeatherViewModel.swift; sourceTree = "<group>"; };
@@ -78,8 +81,11 @@
 				F65FE7AD2ABF7C1F00778779 /* Alamofire in Frameworks */,
 				F65FE7B32AC051C600778779 /* RxBlocking in Frameworks */,
 				F65FE7BB2AC051C600778779 /* RxRelay in Frameworks */,
+				F6044B9B2B13720800A2E652 /* Parchment in Frameworks */,
 				F65FE7B72AC051C600778779 /* RxCocoa in Frameworks */,
 				F65FE7B02ABF7C2C00778779 /* Connectivity in Frameworks */,
+				F6044BA22B13765D00A2E652 /* RxSwift in Frameworks */,
+				F6044BA42B13766300A2E652 /* iPages in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +120,7 @@
 		F619DD3B2A6B2B0700917746 = {
 			isa = PBXGroup;
 			children = (
-				F67176262A7BCD70006BE9FE /* Keys.plist */,
+				F6044B972B12689A00A2E652 /* Keys.plist */,
 				F619DD462A6B2B0700917746 /* WeatherApp */,
 				F619DD452A6B2B0700917746 /* Products */,
 				F619DD582A6B312E00917746 /* Frameworks */,
@@ -266,6 +272,9 @@
 				F65FE7B22AC051C600778779 /* RxBlocking */,
 				F65FE7B62AC051C600778779 /* RxCocoa */,
 				F65FE7BA2AC051C600778779 /* RxRelay */,
+				F6044B9A2B13720800A2E652 /* Parchment */,
+				F6044BA12B13765D00A2E652 /* RxSwift */,
+				F6044BA32B13766300A2E652 /* iPages */,
 			);
 			productName = WeatherApp;
 			productReference = F619DD442A6B2B0700917746 /* WeatherApp.app */;
@@ -299,6 +308,8 @@
 				F65FE7AB2ABF7C1F00778779 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F65FE7AE2ABF7C2C00778779 /* XCRemoteSwiftPackageReference "Connectivity" */,
 				F65FE7B12AC051C600778779 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				F6044B992B13720800A2E652 /* XCRemoteSwiftPackageReference "Parchment" */,
+				F6044B9E2B13763100A2E652 /* XCRemoteSwiftPackageReference "iPages" */,
 			);
 			productRefGroup = F619DD452A6B2B0700917746 /* Products */;
 			projectDirPath = "";
@@ -314,7 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F67176272A7BCD70006BE9FE /* Keys.plist in Resources */,
+				F6044B982B12689A00A2E652 /* Keys.plist in Resources */,
 				F619DD502A6B2B0800917746 /* Preview Assets.xcassets in Resources */,
 				F619DD4C2A6B2B0800917746 /* Assets.xcassets in Resources */,
 			);
@@ -562,6 +573,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F6044B992B13720800A2E652 /* XCRemoteSwiftPackageReference "Parchment" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rechsteiner/Parchment";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		F6044B9E2B13763100A2E652 /* XCRemoteSwiftPackageReference "iPages" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/benjaminsage/iPages";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.13;
+			};
+		};
 		F65FE7AB2ABF7C1F00778779 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -589,6 +616,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F6044B9A2B13720800A2E652 /* Parchment */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6044B992B13720800A2E652 /* XCRemoteSwiftPackageReference "Parchment" */;
+			productName = Parchment;
+		};
+		F6044BA12B13765D00A2E652 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F65FE7B12AC051C600778779 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		F6044BA32B13766300A2E652 /* iPages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6044B9E2B13763100A2E652 /* XCRemoteSwiftPackageReference "iPages" */;
+			productName = iPages;
+		};
 		F65FE7AC2ABF7C1F00778779 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F65FE7AB2ABF7C1F00778779 /* XCRemoteSwiftPackageReference "Alamofire" */;
