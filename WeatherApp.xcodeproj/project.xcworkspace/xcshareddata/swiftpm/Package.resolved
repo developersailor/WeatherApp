@@ -19,6 +19,24 @@
       }
     },
     {
+      "identity" : "ipages",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/benjaminsage/iPages",
+      "state" : {
+        "revision" : "f57e3cba2cf4bd0a689236254cde361e54315720",
+        "version" : "0.0.13"
+      }
+    },
+    {
+      "identity" : "parchment",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rechsteiner/Parchment",
+      "state" : {
+        "branch" : "main",
+        "revision" : "13aad3e9308e8a4e38cb579430dbf66465418777"
+      }
+    },
+    {
       "identity" : "rxswift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ReactiveX/RxSwift",
