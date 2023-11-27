@@ -8,6 +8,7 @@
 import SwiftUI
 import iPages
 struct HomeView: View {
+
     var body: some View {
       iPages{
         WeatherView()
