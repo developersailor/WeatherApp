@@ -7,11 +7,7 @@
 import CoreLocation
 import Alamofire
 import Foundation
-protocol INetworkManager {
-    func fetch<T: Codable>(path: NetworkPath, method: HTTPMethod, type: T.Type) async -> T?
-    func post<T: Codable, R: Encodable>(path: NetworkPath, model: R, type: T.Type) async -> T?
-    var config: NetworkConfig { get set }
-}
+
 class NetworkManager: INetworkManager {
     internal var config: NetworkConfig
 
@@ -63,11 +59,6 @@ class NetworkManager: INetworkManager {
         return nil
     }
 }
-
-struct NetworkConfig {
-    let baseUrl: String
-}
-
 enum NetworkPath: RawRepresentable {
     static let apiKey_ = "key"
 
@@ -108,10 +99,14 @@ enum NetworkPath: RawRepresentable {
     }
 }
 
-
-
-
-
+struct NetworkConfig {
+    let baseUrl: String
+}
+protocol INetworkManager {
+    func fetch<T: Codable>(path: NetworkPath, method: HTTPMethod, type: T.Type) async -> T?
+    func post<T: Codable, R: Encodable>(path: NetworkPath, model: R, type: T.Type) async -> T?
+    var config: NetworkConfig { get set }
+}
 
 extension NetworkManager {
     static let networkManager: INetworkManager = NetworkManager(config: NetworkConfig(baseUrl: NetworkPath.baseUrl))

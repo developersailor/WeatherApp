@@ -40,13 +40,7 @@ struct MyWeatherView: View {
             }
         }
     }
-    
-    struct MyWeatherView_Previews: PreviewProvider {
-        static var previews: some View {
-            MyWeatherView()
-        }
-    }
-    
+  
     class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         private var locationManager = CLLocationManager()
         @Published var onLocationUpdate: ((Result<String, Error>) -> Void)?
@@ -73,4 +67,7 @@ struct MyWeatherView: View {
             onLocationUpdate?(.failure(error))
         }
     }
+}
+#Preview {
+  MyWeatherView()
 }

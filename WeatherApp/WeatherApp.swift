@@ -38,8 +38,6 @@ struct WeatherApp: App {
   }
 }
 
-struct WeatherApp_Previews: PreviewProvider {
-  static var previews: some View {
-    HomeView()
-  }
+#Preview{
+  HomeView()
 }

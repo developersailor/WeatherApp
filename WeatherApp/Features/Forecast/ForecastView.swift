@@ -36,35 +36,10 @@ struct ForecastView: View {
                 .background(Color.blue)
                 .foregroundColor(.white)
                 .cornerRadius(10)
-                
-                List {
-                    let forecastList = forecastViewModel.forecastList ?? []
-
-                    ForEach(forecastList.indices, id: \.self) { index in
-                        let data = forecastList[index]
-
-                        if let dateText = data.dtTxt, let date = dateFormatter.date(from: dateText) {
-                            Section(header: Text("Tarih: \(dateFormatter.string(from: date))")) {
-                                Text("Sıcaklık: \(kelvinToCelsius(kelvin: data.main?.temp ?? 0))°C")
-                            }
-
-                            if index < forecastList.count - 1 {
-                                let nextData = forecastList[index + 1]
-                                if let nextDateText = nextData.dtTxt, let nextDate = dateFormatter.date(from: nextDateText) {
-                                    let currentDay = Calendar.current.component(.day, from: date)
-                                    let nextDay = Calendar.current.component(.day, from: nextDate)
-
-                                    // Check if the day has changed
-                                    if currentDay != nextDay {
-                                        Section(header: Text("Tarih: \(dateFormatter.string(from: nextDate))")) {
-                                            Text("Sıcaklık: \(kelvinToCelsius(kelvin: nextData.main?.temp ?? 0))°C")
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+              ForecastListView(forecastViewModel: forecastViewModel,
+                            kelvinToCelsius: kelvinToCelsius,
+                            dateFormatter: dateFormatter,
+                            forecastList: forecastViewModel.forecastList ?? [])
 
             }
             
@@ -72,8 +47,31 @@ struct ForecastView: View {
     }
 }
 
-struct ForecastView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForecastView()
+
+
+struct ForecastListView: View {
+    var forecastViewModel: ForecastViewModel
+    var kelvinToCelsius: (Double) -> Int
+    var dateFormatter: DateFormatter
+    var forecastList: [Liste]
+
+    var body: some View {
+        List {
+            let forecastList = forecastList
+
+            ForEach(forecastList.indices, id: \.self) { index in
+                let data = forecastList[index]
+
+                if let dateText = data.dtTxt, let date = dateFormatter.date(from: dateText) {
+                    Section(header: Text("Tarih: \(dateFormatter.string(from: date))")) {
+                        Text("Sıcaklık: \(self.kelvinToCelsius(data.main?.temp ?? 0))°C")
+                    }
+                }
+            }
+        }
     }
+}
+
+#Preview {
+  ForecastView()
 }
