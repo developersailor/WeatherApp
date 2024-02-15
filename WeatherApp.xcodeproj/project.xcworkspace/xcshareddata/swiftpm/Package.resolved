@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
-        "revision" : "b2fa556e4e48cbf06cf8c63def138c98f4b811fa",
-        "version" : "5.8.0"
+        "revision" : "3dc6a42c7727c49bf26508e29b0a0b35f9c7e1ad",
+        "version" : "5.8.1"
       }
     },
     {
@@ -16,33 +16,6 @@
       "state" : {
         "revision" : "baf392cd229138c268e5dbaf3ee84e6ae0876173",
         "version" : "6.1.1"
-      }
-    },
-    {
-      "identity" : "ipages",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/benjaminsage/iPages",
-      "state" : {
-        "revision" : "f57e3cba2cf4bd0a689236254cde361e54315720",
-        "version" : "0.0.13"
-      }
-    },
-    {
-      "identity" : "parchment",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/rechsteiner/Parchment",
-      "state" : {
-        "branch" : "main",
-        "revision" : "13aad3e9308e8a4e38cb579430dbf66465418777"
-      }
-    },
-    {
-      "identity" : "rxswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ReactiveX/RxSwift",
-      "state" : {
-        "revision" : "9dcaa4b333db437b0fbfaf453fad29069044a8b4",
-        "version" : "6.6.0"
       }
     }
   ],

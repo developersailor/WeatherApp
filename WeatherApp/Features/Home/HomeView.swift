@@ -6,15 +6,28 @@
 //
 
 import SwiftUI
-import iPages
-struct HomeView: View {
 
+struct HomeView: View {
     var body: some View {
-      iPages{
-        WeatherView()
-        MyWeatherView()
-        ForecastView()
-      }
+        TabView {
+            VStack{
+                WeatherView()
+                    
+            }.tabItem {
+                Label("Anasayfa", systemImage: "house")
+            }
+                    MyWeatherView()
+                        .tabItem {
+                            Label("Konumum", systemImage: "location")
+                        }
+
+                    ForecastView()
+                        .tabItem {
+                            Label("Haftalık", systemImage: "calendar")
+                        }
+                }
+
+      
     }
 }
 
