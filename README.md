@@ -26,7 +26,7 @@ Uygulamayı çalıştırdıktan sonra, cihazınızın konum izinlerini vererek v
 
 ## Ekran Görüntüleri
 
-![Weather App Demo](https://github.com/developersailor/WeatherApp/raw/main/appv03.gif)
+![Weather App Demo](https://github.com/developersailor/WeatherApp/raw/main/appv1.0.gif)
 
 
 

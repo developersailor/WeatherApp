@@ -11,7 +11,7 @@ final class ForecastViewModel: ObservableObject {
   private let manager = NetworkManager.networkManager
 
   func fetchForecast(city: String) async {
-    let result = await manager.fetch(path: .forecast(city: city), method: .get, type: WeatherModel.self)
+    let result = await manager.fetch(path: .forecast(city: city), method: .get, type: OpenWeatherMap.self)
     Task {
       DispatchQueue.main.async { [self] in
         forecastList = result?.list

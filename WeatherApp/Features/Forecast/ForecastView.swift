@@ -91,18 +91,18 @@ struct ForecastListViewItem: View {
         HStack{
           Text("Rüzgar Hızı:")
             .fontWeight(.semibold)
-          Text(data.wind?.speed?.description ?? "")
+          Text(data.wind?.speed?.description ?? " ")
             .font(.title2)
         }
         HStack{
           Text("Nem:")
             .fontWeight(.semibold)
-          Text(data.main?.humidity?.description ?? "").font(.title2)
+          Text(data.main?.humidity?.description ?? " ").font(.title2)
         }
         HStack{
           Text("Basınç:")
             .fontWeight(.semibold)
-          Text(data.main?.pressure?.description ?? "").font(.title2)
+          Text(data.main?.pressure?.description ?? " ").font(.title2)
         }
       }
     }
