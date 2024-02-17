@@ -7,21 +7,26 @@
 
 import Foundation
 final class WeatherViewModel: ObservableObject {
-    @Published var degree: Double? = nil
-    @Published var cityName: String? = nil
-    @Published var humidity: Int? = nil 
-    private let manager = NetworkManager.networkManager
-    func fetchWeather(city: String) async  -> WeatherModel? {
-        let result = await manager.fetch(path: .weather(city: city), method: .get, type: WeatherModel.self)
-        Task{
-            DispatchQueue.main.async { [self] in
-                degree =  result?.main?.temp
-                cityName = result?.name
-                humidity = result?.main?.humidity
-            }
-            return result
-        }
-       
-        return result
+  @Published var degree: Double? = nil
+  @Published var cityName: String? = nil
+  @Published var humidity: Int? = nil
+  private let manager = NetworkManager.networkManager
+  func fetchWeather(city: String) async -> WeatherModel? {
+    let result = await manager.fetch(path: .weather(city: city), method: .get, type: WeatherModel.self)
+    Task {
+      DispatchQueue.main.async { [self] in
+        degree = result?.main?.temp
+        cityName = result?.name
+        humidity = result?.main?.humidity
+      }
+      return result
     }
+
+    return result
+  }
+
+  func kelvinToCelcius(kelvin: Double) -> Int {
+    let celcius = kelvin - 273.15
+    return Int(celcius)
+  }
 }

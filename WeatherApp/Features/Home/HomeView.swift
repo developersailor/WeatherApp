@@ -8,27 +8,25 @@
 import SwiftUI
 
 struct HomeView: View {
-    var body: some View {
-        TabView {
-            VStack{
-                WeatherView()
-                    
-            }.tabItem {
-                Label("Anasayfa", systemImage: "house")
-            }
-                    MyWeatherView()
-                        .tabItem {
-                            Label("Konumum", systemImage: "location")
-                        }
+  var body: some View {
+    TabView {
+      VStack {
+        WeatherView()
 
-                    ForecastView()
-                        .tabItem {
-                            Label("Haftalık", systemImage: "calendar")
-                        }
-                }
+      }.tabItem {
+        Label("Anasayfa", systemImage: "house")
+      }
+      MyWeatherView()
+        .tabItem {
+        Label("Konumum", systemImage: "location")
+      }
 
-      
+      ForecastView()
+        .tabItem {
+        Label("Haftalık", systemImage: "calendar")
+      }
     }
+  }
 }
 
 #Preview {

@@ -8,7 +8,7 @@
 import Foundation
 
 final class Fonts {
-  private static let roboto:String = "Roboto"
+  private static let roboto: String = "Roboto"
   static let robotoBlack: String = "\(roboto)-Black"
   static let robotoBlackItalic: String = "\(roboto)-BlackItalic"
   static let robotoBold: String = "\(roboto)-Bold"
@@ -21,5 +21,5 @@ final class Fonts {
   static let robotoRegular: String = "\(roboto)-Regular"
   static let robotoThin: String = "\(roboto)-Thin"
   static let robotoThinItalic: String = "\(roboto)-ThinItalic"
-  static let russoOneRegular:String = "RussoOne-Regular"
+  static let russoOneRegular: String = "RussoOne-Regular"
 }

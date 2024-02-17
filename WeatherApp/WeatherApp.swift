@@ -9,35 +9,25 @@ import SwiftUI
 
 @main
 struct WeatherApp: App {
-  @StateObject var viewModel = WeatherAppViewModel()
- init(){
-    if let plistPath = Bundle.main.path(forResource: "Keys", ofType: "plist"),
-       let keys = NSDictionary(contentsOfFile: plistPath) as? [String: Any],
-       let apiKey = keys["key"] as? String {
-      UserDefaults.standard.set(apiKey, forKey: "key")
-      // Değer almak
-      if let savedApiKey = UserDefaults.standard.string(forKey: "key") {
-          print("API Key:", savedApiKey)
-      }
-    } else {
-        print("API Key not found.")
-    }
+  @ObservedObject var _viewModel = WeatherAppViewModel()
+  init() {
+    _viewModel.getApiKey()
   }
   var body: some Scene {
     WindowGroup {
-      if viewModel.isConnected {
+      if _viewModel.isConnected {
         HomeView()
       }
       else {
         Text("internet yok")
-        Button("Yeniden bağlan"){
-          viewModel.restartConnectivity()
+        Button("Yeniden bağlan") {
+          _viewModel.restartConnectivity()
         }
       }
     }
   }
 }
 
-#Preview{
+#Preview {
   HomeView()
 }

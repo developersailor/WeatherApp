@@ -6,8 +6,8 @@
 //
 
 import Foundation
-enum Font{
-  case robotoBlack,robotoBlackItalic,robotoBold,robotoBoldItalic,robotoItalic,robotoLight,robotoLightItalic,robotoMedium,robotoMediumItalic,robotoRegular,robotoThin,robotoThinItalic
+enum Font {
+  case robotoBlack, robotoBlackItalic, robotoBold, robotoBoldItalic, robotoItalic, robotoLight, robotoLightItalic, robotoMedium, robotoMediumItalic, robotoRegular, robotoThin, robotoThinItalic
   func getFont() -> String {
     switch self {
     case .robotoBlack:
@@ -36,5 +36,5 @@ enum Font{
       return Fonts.robotoThinItalic
     }
   }
-  
+
 }
