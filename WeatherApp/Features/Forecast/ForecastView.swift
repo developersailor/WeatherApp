@@ -15,7 +15,7 @@ struct ForecastView: View {
   var body: some View {
     NavigationView {
       VStack {
-        HStack {
+        VStack {
           TextField("Şehir Adı Girin", text: $city)
             .padding()
             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -31,7 +31,7 @@ struct ForecastView: View {
               .cornerRadius(10)
           }
         }
-        .padding()
+        .padding(.all, 10.0)
         
         ForecastListView(forecastViewModel: forecastViewModel,
                          kelvinToCelsius: forecastViewModel.kelvinToCelsius,

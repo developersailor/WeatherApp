@@ -25,8 +25,8 @@ final class WeatherViewModel: ObservableObject {
     return result
   }
 
-  func kelvinToCelcius(kelvin: Double) -> Int {
+  func kelvinToCelcius(kelvin: Double) -> Double {
     let celcius = kelvin - 273.15
-    return Int(celcius)
+    return celcius
   }
 }
