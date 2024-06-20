@@ -29,7 +29,7 @@ struct WeatherView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
                     .padding(.horizontal, 20)
-            }
+            }.padding()
   
             
           if let cityName = viewModel.cityName, let degree = viewModel.degree ,let humidity = viewModel.humidity {
@@ -58,6 +58,7 @@ struct WeatherView: View {
                 .padding(.horizontal, 20)
             Spacer()
             } else {
+              VStack{
                 Text("Hava durumu bilgisi bekleniyor")
                     .padding()
                     .background(Color(.systemGray6))
@@ -69,6 +70,7 @@ struct WeatherView: View {
                   .background(Color(.systemGray6))
                   .cornerRadius(10)
                   .padding(.horizontal, 20)
+              }
             }
           Spacer()
             
