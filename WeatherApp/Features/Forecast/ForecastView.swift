@@ -109,10 +109,17 @@ struct ForecastListViewItem: View {
             .fontWeight(.semibold)
           Text(data.main?.humidity?.description ?? " ").font(.title2)
         }
-        HStack{
-          Text("Basınç:")
-            .fontWeight(.semibold)
-          Text(data.main?.pressure?.description ?? " ").font(.title2)
+        VStack{
+          HStack{
+            Text("Basınç:")
+              .fontWeight(.semibold)
+            Text(data.main?.pressure?.description ?? " ").font(.title2)
+            Spacer()
+          }
+          HStack{
+            Text("\(data.dtTxt ?? " ")")
+          Spacer()
+          }
         }
       }
     }
