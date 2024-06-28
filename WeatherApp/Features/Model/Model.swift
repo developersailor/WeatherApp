@@ -179,3 +179,20 @@ struct OpenWeatherMapSys: Codable {
     let country: String?
     let sunrise, sunset: Int?
 }
+
+// MARK: - UVIndex
+struct UVIndex: Codable {
+    let lat: Double
+    let lon: Double
+    let dateISO: String
+    let date: Int
+    let value: Double
+
+    enum CodingKeys: String, CodingKey {
+        case lat
+        case lon
+        case dateISO = "date_iso"
+        case date
+        case value
+    }
+}

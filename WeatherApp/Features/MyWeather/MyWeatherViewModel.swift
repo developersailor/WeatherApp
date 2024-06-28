@@ -23,6 +23,5 @@ final class MyWeatherViewModel: ObservableObject {
         humidity = result?.main?.humidity
       }
     }
-
   }
 }

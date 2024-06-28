@@ -18,6 +18,8 @@ enum NetworkPath: RawRepresentable {
   case weather(city: String)
   case weatherLanLat(location: CLLocation)
   case forecast(city: String)
+  case uvIndex(location: CLLocation)
+  
 
   var rawValue: String {
     guard let apiKey = NetworkPath.apiKey else {
@@ -31,8 +33,9 @@ enum NetworkPath: RawRepresentable {
       return "weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=\(apiKey)&units=metric"
     case .forecast(let city):
       return "forecast?q=\(city)&appid=\(apiKey)&cnt=40"
+    case .uvIndex(location: let location):
+      return "uvi?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=\(apiKey)"
     }
-
   }
 
 
